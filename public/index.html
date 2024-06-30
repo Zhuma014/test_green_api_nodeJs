@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREEN-API Integration</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center; 
+        }
+  
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+  
+        .response-container {
+          width: 100%;
+          max-width: 800px; 
+          margin-top: 20px; 
+        }
+  
+        .response {
+          padding: 10px;
+          border: 1px solid #ccc;
+          background-color: #f9f9f9;
+          white-space: pre-wrap;
+          overflow-y: auto;
+          width: 300%;
+          max-width: 400px; 
+          height: 500px; 
+        }
+        .fields {
+          margin-bottom: 20px;
+        }
+        .field {
+          margin-bottom: 10px;
+        }
+        .field label {
+          display: block;
+          margin-bottom: 5px;
+        }
+        .field input {
+          width: 100%;
+          padding: 8px;
+          box-sizing: border-box;
+        }
+        .button {
+          margin-bottom: 30px;
+        }
+  
+        @media (min-width: 600px) {
+          .container {
+            flex-direction: row;
+            justify-content: space-between;
+          }
+          .fields {
+            margin-right: 50px;
+            flex: 1;
+          }
+          .response-container {
+            flex: 1;
+          }
+        }
+      </style>
+</head>
+<body>
+    <h1>GREEN-API Integration</h1>
+    <div class="container">
+        <div class="fields">
+            <div class="field">
+                <label for="idInstance">ID Instance:</label>
+                <input type="text" id="idInstance" oninput="checkFieldsFilled()">
+            </div>
+            <div class="field">
+                <label for="apiTokenInstance">API Token Instance:</label>
+                <input type="text" id="apiTokenInstance" oninput="checkFieldsFilled()">
+            </div>
+            <div class="button">
+                <button id="getSettingsBtn" onclick="getSettings()" disabled>Get Settings</button>
+            </div>
+            <div class="button">
+                <button id="getStateInstanceBtn" onclick="getStateInstance()" disabled>Get State Instance</button>
+            </div>
+            <div class="field">
+                <label for="chatId">Chat ID:</label>
+                <input type="text" id="chatId" placeholder="e.g., 77771234567@c.us">
+            </div>
+            <div class="field">
+                <label for="message">Message:</label>
+                <input type="text" id="message" value="Hello World!">
+            </div>
+            <div class="button">
+                <button id="sendMessageBtn" onclick="sendMessage()" disabled>Send Message</button>
+            </div>
+            <div class="field">
+                <label for="fileUrl">File URL:</label>
+                <input type="text" id="fileUrl" value="https://my.site.com/img/horse.png">
+            </div>
+            <div class="button">
+                <button id="sendFileBtn" onclick="sendFileByUrl()" disabled>Send File by URL</button>
+            </div>
+        </div>
+        <div class="response-container">
+            <label>Response:</label>
+            <div class="response" id="responseField"></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
